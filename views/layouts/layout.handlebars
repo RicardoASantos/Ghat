@@ -1,0 +1,234 @@
+<html>
+<head>
+<meta charset="utf-8">
+
+  <title>Ghat</title>
+
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="/js/jquery-mobile.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="menu-flap-screen"></div>
+
+    <div class="menu-flap">
+      <div class="user-menu">
+        <div class="user-menu-details">
+          <figure>
+            <img src="http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg">
+          </figure>
+
+          <h3>{{{user.username}}}</h3>
+          <p>{{{user.phone}}}</p>
+          <p>{{{user.email}}}</p>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          {{#if user}}
+            <a href="/" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-apps"></i> Dashboard</li></a>
+            <a href="/chat" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-comments"></i> Chat</li></a>
+            <a href="/users/logout" rel="external", data-ajax="false"><li role="presentation"><i class="zmdi zmdi-account-o"></i> Logout</li></a>
+          {{else}}
+           <a href="/users/login" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-account"></i>Login</li></a>
+            <a href="/users/register" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-account-add"></i> Register</li></a>
+          {{/if}}
+        </ul>
+      </nav>
+      <div class="menu-footer">
+        <h4>Ghat</h4>
+        <p>Version 0.0.4 | <a href="#">About</a></p>
+      </div>
+
+    </div>
+
+    <!--<div class="header clearfix">
+    <div class="menu-flap">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          {{#if user}}
+            <a href="/" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-apps"></i> Dashboard</li></a>
+            <a href="/chat" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-comments"></i> Chat</li></a>
+            <a href="/users/logout" rel="external", data-ajax="false"><li role="presentation"><i class="zmdi zmdi-account-o"></i> Logout</li></a>
+          {{else}}
+           <a href="/users/login" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-account"></i>Login</li></a>
+            <a href="/users/register" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-account-add"></i> Register</li></a>
+          {{/if}}
+        </ul>
+      </nav>
+    </div>
+-->
+
+    <div class="row">
+      <div class="col-lg-12">
+        {{#if success_msg}}
+          <div class="alert alert-success">{{success_msg}}</div>
+        {{/if}}
+
+        {{#if error_msg}}
+          <div class="alert alert-danger">{{error_msg}}</div>
+        {{/if}}
+
+        {{#if error}}
+          <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+
+        {{{body}}}
+      </div>
+
+    </div>
+
+<div class="chat-screen">
+
+  <nav class="user_nav">
+    <i class="zmdi zmdi-chevron-left chat-back"></i>
+
+    <div class="user_info">
+      <input id="user" value="" readonly="readonly"/>
+      <p class="time">Last online 3 hours ago</p>
+    </div>
+
+    <figure>
+      <img src="http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg">
+    </figure>
+
+  </nav>
+
+    <div class="chat">
+      <div id="chat-window" v-sticky-scroll>
+        <div id="output"></div>
+        <div id="feedback"></div>
+      </div>
+
+      <form id="messageForm">
+        <input id="message" type="text" placeholder="Text to GIF" />
+        <div class="zmdi zmdi-mail-send send-message-button"> <input id="send" type="submit" class="btn btn-primary" value="" /></div>
+        <i class="zmdi zmdi-gif"></i>
+      </form>
+
+
+    </div>
+
+    <script src="/js/chat.js"></script>
+    <script src="/js/style.js"></script>
+    <script>
+      var scrolled = false;
+
+      function updateScroll() {
+        if (!scrolled) {
+          var messageBody = document.getElementById('chat-window');
+          messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+          console.log(0);
+        }
+      }
+
+      $("#chat-window").on('scroll', function() {
+        scrolled = true;
+      });
+
+      setInterval(updateScroll, 0000);
+    </script>
+
+</div>
+
+<div class="edit_room">
+
+    <div class="part">
+
+      <i class="zmdi zmdi-chevron-left setting-back"></i>
+      <h3>LEAVE</h3>
+
+      <div class="room-setting-info">
+
+        <figure>
+          <img src="https://i.imgur.com/ji6qi2p.gif" >
+        </figure>
+
+        <input type="text" id="roomName_edit" value="" readonly>
+        <p>XX members</p>
+
+        <div class="button_settings">
+          <p class="edit_group">Edit group</p>
+        </div>
+
+        <div class="button_settings">
+          <p>Add members</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="part">
+      <h1>Settings</h1>
+
+     <input type="checkbox" id="myCheck" value="Notifications" data-role="controlgroup">  <label>Notifications</label>
+
+     <a href="#">Manage administrators</a>
+     <a href="#">Invite links</a>
+
+    </div>
+
+    <div class="part">
+      <h1>Actions</h1>
+
+     <a href="#">Clear History</a>
+     <a href="#">Delete and exit</a>
+
+    </div>
+
+    <div class="part">
+      <h1>Members</h1>
+
+      <div class="member_group">
+
+        <figure>
+          <img src="https://i.imgur.com/ji6qi2p.gif" >
+        </figure>
+
+        <h2>nOME</h2>
+        <p>XX members</p>
+
+      </div>
+
+      <div class="member_group">
+
+        <figure>
+          <img src="https://i.imgur.com/ji6qi2p.gif" >
+        </figure>
+
+        <h2>NoME</h2>
+        <p>XX members</p>
+
+      </div>
+
+      <div class="member_group">
+
+        <figure>
+          <img src="https://i.imgur.com/ji6qi2p.gif" >
+        </figure>
+
+        <h2>NoME</h2>
+        <p>XX members</p>
+
+      </div>
+
+
+    </div>
+
+</div>
+
+  </div> <!-- /container -->
+</body>
+
+</html>

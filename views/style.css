@@ -1,0 +1,262 @@
+/* Space out content a bit */
+*, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; }
+
+.ui-loader {
+  display: none; }
+
+a {
+  text-decoration: none; }
+
+.zmdi {
+  font-size: 15vw; }
+
+.user_nav {
+  width: 100%;
+  background: #aeaeae;
+  box-shadow: 0em 0.3em #929292;
+  float: left;
+  z-index: 100;
+  position: fixed; }
+  .user_nav .zmdi-chevron-left {
+    font-size: 5em;
+    margin-left: 5vw;
+    width: 10vw;
+    height: 10vw;
+    float: left;
+    line-height: 10vw;
+    padding-top: 2vw; }
+  .user_nav .user_info {
+    padding-top: 2vw;
+    float: left; }
+    .user_nav .user_info input {
+      font-size: 5vw;
+      border: none;
+      background: transparent; }
+    .user_nav .user_info .time {
+      font-size: 3vw;
+      color: #e8e8e8; }
+  .user_nav figure {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 10vw;
+    overflow: hidden;
+    float: right;
+    margin: 2vw; }
+    .user_nav figure img {
+      height: 100%; }
+
+.chat {
+  width: 100%;
+  height: 93vh; }
+  .chat #chat-window {
+    height: 100%;
+    overflow: scroll;
+    background: #f9f9f9; }
+  .chat .card {
+    float: left;
+    width: 100%;
+    font-size: 4vw; }
+    .chat .card p {
+      float: left;
+      margin: 0 20px;
+      color: #555; }
+  .chat .cardMine {
+    float: right;
+    text-align: right; }
+    .chat .cardMine p {
+      float: right; }
+  .chat #feedback p {
+    color: #aaa;
+    padding: 14px 0px;
+    margin: 0 20px; }
+  .chat #output strong {
+    color: #575ed8; }
+  .chat #messageForm {
+    width: 100%;
+    background: #aeaeae;
+    box-shadow: 0em -0.3em #929292;
+    float: left;
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    height: 7vh; }
+    .chat #messageForm input {
+      padding: 3vw 4vw;
+      background: transparent;
+      width: 65%;
+      border: 0;
+      font-size: 4vw;
+      color: #e8e8e8;
+      float: left; }
+    .chat #messageForm input::placeholder {
+      color: #e8e8e8;
+      font-style: italic; }
+    .chat #messageForm .btn {
+      display: none; }
+    .chat #messageForm .zmdi-mail-send {
+      float: right;
+      padding: 2vw 7vw;
+      font-size: 7vw;
+      color: #707070; }
+    .chat #messageForm .zmdi-gif {
+      font-size: 10vw;
+      padding: 0vw 2vw;
+      float: right; }
+
+.main_header {
+  width: 100%;
+  background: #aeaeae;
+  box-shadow: 0em 0.3em #929292;
+  float: left;
+  z-index: 100;
+  position: fixed; }
+  .main_header .zmdi-menu {
+    padding: 7vw 5vw;
+    font-size: 6.5vw;
+    color: #eaeaea;
+    float: left; }
+  .main_header figure {
+    position: fixed;
+    margin-left: 32.5%;
+    width: 35%; }
+    .main_header figure img {
+      width: 100%; }
+
+.menu-flap-screen {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 101;
+  opacity: 0;
+  display: none; }
+
+.menu-flap {
+  position: absolute;
+  z-index: 102;
+  width: 70%;
+  background: #cacaca;
+  height: 100%;
+  margin-left: -70%; }
+  .menu-flap .user-menu {
+    background: #aeaeae;
+    box-shadow: 0em 0.3em #929292;
+    width: 100%;
+    top: 0; }
+    .menu-flap .user-menu .user-menu-details {
+      padding: 5vw; }
+    .menu-flap .user-menu figure {
+      width: 12vw;
+      height: 12vw;
+      border-radius: 10vw;
+      overflow: hidden;
+      margin-bottom: 4vw; }
+      .menu-flap .user-menu figure img {
+        height: 100%; }
+    .menu-flap .user-menu h3 {
+      font-size: 5.5vw;
+      font-weight: normal;
+      margin-bottom: 2vw;
+      color: #eaeaea; }
+    .menu-flap .user-menu p {
+      font-size: 3.5vw;
+      color: #eaeaea; }
+  .menu-flap nav ul {
+    padding: 5vw 0 0 5vw; }
+    .menu-flap nav ul a {
+      list-style: none;
+      height: 12vw;
+      line-height: 12vw;
+      color: #3c3c3c; }
+      .menu-flap nav ul a li {
+        font-size: 4vw; }
+        .menu-flap nav ul a li i {
+          width: 10vw;
+          font-size: 6vw;
+          text-align: left; }
+  .menu-flap .menu-footer {
+    position: absolute;
+    bottom: 5vw;
+    left: 5vw; }
+    .menu-flap .menu-footer h4 {
+      font-size: 3.5vw;
+      color: #3c3c3c; }
+    .menu-flap .menu-footer p {
+      float: left;
+      font-size: 3vw;
+      color: #3c3c3c; }
+      .menu-flap .menu-footer p a {
+        color: #3c3c3c; }
+
+.page-header {
+  padding-top: 20vh;
+  text-align: center; }
+  .page-header h2 {
+    margin-bottom: 7.5vh;
+    font-size: 8vw; }
+  .page-header form {
+    width: 60%;
+    margin-left: 20%; }
+    .page-header form input {
+      width: 100%;
+      font-size: 4vw;
+      margin-bottom: 2vh;
+      background: #eaeaea;
+      box-shadow: 0.2em 0.2em #aeaeae;
+      border: none;
+      color: #808080;
+      padding: 1vw 3vw; }
+    .page-header form input::placeholder {
+      font-style: italic; }
+    .page-header form button {
+      float: right;
+      font-size: 3.5vw;
+      padding: 1.5vw 8vw;
+      background: #eaeaea;
+      box-shadow: 0.2em 0.2em #aeaeae;
+      color: #808080;
+      border: 0;
+      cursor: pointer; }
+    .page-header form button:hover {
+      background: #aeaeae;
+      box-shadow: 0 0;
+      color: #eaeaea; }
+
+.register-form form {
+  width: 60%;
+  margin-left: 20%; }
+  .register-form form input {
+    width: 100%;
+    font-size: 4vw;
+    margin-bottom: 2vh;
+    background: #eaeaea;
+    box-shadow: 0.2em 0.2em #aeaeae;
+    border: none;
+    color: #808080;
+    padding: 1vw 3vw; }
+  .register-form form input::placeholder, .register-form form textarea::placeholder {
+    font-style: italic; }
+  .register-form form textarea {
+    width: 100%;
+    height: 15vh;
+    font-size: 4vw;
+    margin-bottom: 2vh;
+    background: #eaeaea;
+    box-shadow: 0.2em 0.2em #aeaeae;
+    border: none;
+    color: #808080;
+    padding: 1vw 3vw; }
+  .register-form form button {
+    float: right;
+    font-size: 3.5vw;
+    padding: 1.5vw 8vw;
+    background: #eaeaea;
+    box-shadow: 0.2em 0.2em #aeaeae;
+    color: #808080;
+    border: 0;
+    cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */

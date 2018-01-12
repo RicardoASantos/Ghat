@@ -1,0 +1,32 @@
+{
+  "name": "Ghat",
+  "version": "1.0.0",
+  "description": "Chat App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ricardo Santos",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "^3.0.0-rc0",
+    "mongoose": "^4.13.7",
+    "nodemon": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*",
+    "save": "^2.3.2",
+    "socket.io": "^2.0.4",
+    "vue": "^2.5.11",
+    "vue-sticky-bottom-scroll": "^0.1.0"
+  }
+}

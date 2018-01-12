@@ -1,0 +1,79 @@
+<header class="main_header">
+  <i class="zmdi zmdi-menu"></i>
+
+  <figure>
+    <img src="/img/placeholder-logo.jpg" alt="Ghat logo" />
+  </figure>
+</header>
+
+<div class="menu-flap-screen"></div>
+
+<div class="menu-flap">
+  <div class="user-menu">
+    <div class="user-menu-details">
+      <figure>
+        <img src="http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg">
+      </figure>
+
+      <h3>{{{user.username}}}</h3>
+      <p>{{{user.phone}}}</p>
+      <p>{{{user.email}}}</p>
+    </div>
+  </div>
+
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      {{#if user}}
+        <a href="/" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-apps"></i> Dashboard</li></a>
+        <a href="/chat" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-comments"></i> Chat</li></a>
+        <a href="/users/logout" rel="external", data-ajax="false"><li role="presentation"><i class="zmdi zmdi-account-o"></i> Logout</li></a>
+      {{else}}
+       <a href="/users/login" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-account"></i>Login</li></a>
+        <a href="/users/register" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-account-add"></i> Register</li></a>
+      {{/if}}
+    </ul>
+  </nav>
+  <div class="menu-footer">
+    <h4>Ghat</h4>
+    <p>Version 0.0.4 | <a href="#">About</a></p>
+  </div>
+
+</div>
+
+<div class="page-header">
+  <h2>Register</h2>
+</div>
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+
+<div class="register-form">
+  <form method="post" action="/users/register">
+     <div class="form-group">
+      <input type="text" class="form-control" placeholder="Name" name="name">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Username" name="username">
+    </div>
+     <div class="form-group">
+      <input type="email" class="form-control" placeholder="Email" name="email">
+    </div>
+    <div class="form-group">
+     <input type="tel" class="form-control" placeholder="Phone" name="phone">
+   </div>
+   <div class="form-group">
+    <textarea name="bio" placeholder="Write something about yourself"></textarea>
+  </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Password" name="password">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+<script src="/js/style.js"></script>

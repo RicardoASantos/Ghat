@@ -1,0 +1,40 @@
+<body>
+<div id="mario-chat">
+  <div id="chat-window" v-sticky-scroll>
+    <div id="output" ></div>
+    <div id="feedback"></div>
+  </div>
+
+  <form id="messageForm">
+    <input id="user" type="text" value="{{{user.username}}}" />
+    <input id="message" type="text" placeholder="Message" />
+    <input id="send" type="submit" class="btn btn-primary" value="Send Message" />
+ </form>
+
+
+</div>
+
+
+<script src="/js/room.js"></script>
+
+<script>
+
+var scrolled = false;
+function updateScroll(){
+    if(!scrolled){
+      var messageBody = document.getElementById('chat-window');
+      messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+      console.log(0);
+    }
+}
+
+$("#chat-window").on('scroll', function(){
+    scrolled=true;
+});
+
+setInterval(updateScroll,0000);
+
+</script>
+
+
+</body>

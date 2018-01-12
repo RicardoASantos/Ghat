@@ -1,0 +1,43 @@
+<div class="header clearfix">
+
+  <header class="main_header">
+    <i class="zmdi zmdi-menu"></i>
+
+    <figure>
+      <img src="/img/placeholder-logo.jpg" alt="Ghat logo" />
+    </figure>
+  </header>
+
+<div class="menu-flap-screen"></div>
+
+<div class="menu-flap">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      {{#if user}}
+        <a href="/" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-apps"></i> Dashboard</li></a>
+        <a href="/chat" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-comments"></i> Chat</li></a>
+        <a href="/users/logout" rel="external", data-ajax="false"><li role="presentation"><i class="zmdi zmdi-account-o"></i> Logout</li></a>
+      {{else}}
+       <a href="/users/login" rel="external", data-ajax="false">  <li role="presentation"><i class="zmdi zmdi-account"></i>Login</li></a>
+        <a href="/users/register" rel="external", data-ajax="false"> <li role="presentation"><i class="zmdi zmdi-account-add"></i> Register</li></a>
+      {{/if}}
+    </ul>
+  </nav>
+</div>
+
+</div>
+
+<div class="page-header">
+  <h2>Login</h2>
+  <form method="post" action="/users/login">
+    <div class="form-group">
+      <input type="text" class="form-control" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+
+<script src="/js/style.js"></script>
